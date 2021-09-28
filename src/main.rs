@@ -21,10 +21,12 @@ fn main() {
             let file_path = entry.path();
             if file_path.is_some() {
                 let file_path = format!("{}/{}", path, file_path.unwrap());
-                println!("Previous file path: {}", file_path);
-                let new_path = get_updated_path(&file_path);
-                println!("New file path: {}", new_path);
-                fs::rename(file_path, new_path).unwrap();
+                if file_path.ends_with(".seeder.js") {
+                    println!("Previous file path: {}", file_path);
+                    let new_path = get_updated_path(&file_path);
+                    println!("New file path: {}", new_path);
+                    fs::rename(file_path, new_path).unwrap();
+                }
             }
         }
     }
