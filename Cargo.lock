@@ -168,7 +168,7 @@ checksum = "7c9b1041b4387893b91ee6746cddfc28516aff326a3519fb2adf820932c5e6cb"
 
 [[package]]
 name = "rename-seeders"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "git2",
 ]
