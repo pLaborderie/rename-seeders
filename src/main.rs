@@ -26,7 +26,10 @@ fn main() {
                     println!("Previous file path: {}", file_path);
                     let new_path = get_updated_path(&file_path);
                     println!("New file path: {}", new_path);
-                    fs::rename(file_path, new_path).unwrap();
+                    match fs::rename(file_path, new_path) {
+                        Ok(_) => println!("File renamed successfully"),
+                        Err(e) => println!("Error: {}", e),
+                    }
                 }
             }
         }
@@ -47,6 +50,6 @@ fn get_updated_path(path: &str) -> String {
             path.replace("updated", "updated2")
         }
     } else {
-        path.replace(".", "updated.")
+        path.replace(".seeder", "-updated.seeder")
     }
 }
